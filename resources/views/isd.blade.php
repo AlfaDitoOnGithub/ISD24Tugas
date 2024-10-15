@@ -1,7 +1,8 @@
 <x-app-layout>
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 text-gray-800 dark:text-gray-200">
     
-    <form action="{{ route ('aes_cbc') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route ('aes.cbc') }}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
                 <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name</label>
@@ -36,27 +37,13 @@
         <button type="submit" class="text-black bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
     </form>
     @if(isset($decrypted_data))
-        <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name{{ decrypted_data['First Name']}}</label>
-        </div> 
-        <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name{{ decrypted_data['Last Name']}}</label>
-        </div> 
-        <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company{{ decrypted_data['Company']}}</label>
-        </div> 
-        <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number{{ decrypted_data['Phone Number']}}</label>
-        </div> 
-        <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address{{ decrypted_data['Email Address']}}</label>
-        </div> 
-        <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Foto KTP{{ decrypted_data['Foto KTP']}}</label>
-        </div>
-        <div class="mb-6">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Video{{ decrypted_data['Video']}}</label>
-        </div>
+        <p>First Name{{ $decrypted_data['First Name']}}</p> 
+        <p>Last Name{{ $decrypted_data['Last Name']}}</p> 
+        <p>Company{{ $decrypted_data['Company']}}</p>
+        <p>Phone Number{{ $decrypted_data['Phone Number']}}</p>
+        <p>Email Address{{ $decrypted_data['Email Address']}}</p>
+        <p>Foto KTP: {{ $decrypted_data['Foto KTP']}}</p>
+        <p>Video: {{ $decrypted_data['Video']}}</p>
     @endif
 </div>
 </x-app-layout>

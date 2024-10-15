@@ -9,7 +9,7 @@ class Upload extends Model
 {
     use HasFactory;
 
-    protected $table ='uploaded'
+    protected $table ='uploaded';
 
     protected $fillable = [
         'First Name',

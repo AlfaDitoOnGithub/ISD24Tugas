@@ -22,4 +22,4 @@ require __DIR__.'/auth.php';
 Route::get('/isd', function () {
     return view('isd');
 });
-Route::post('/encryptAes', [Aes::class, 'encryptAes']) -> name('aes_cbc');
+Route::post('/encryptAes', 'App\Http\Controllers\Aes@encryptAes') -> name('aes.cbc');

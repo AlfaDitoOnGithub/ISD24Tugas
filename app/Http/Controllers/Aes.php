@@ -22,13 +22,13 @@ class Aes extends Controller
             // Data to encrypt
             
             $encrypted_data = [
-                'First Name' => openssl_encrypt($request->first_name, $data, $cipher, $encryption_key, 0, $iv),
-                'Last Name' => openssl_encrypt($request->last_name, $data, $cipher, $encryption_key, 0, $iv),
-                'Company' => openssl_encrypt($request->company, $data, $cipher, $encryption_key, 0, $iv),
-                'Phone Number' => openssl_encrypt($request->phone, $data, $cipher, $encryption_key, 0, $iv),
-                'Email Address' => openssl_encrypt($request->email, $data, $cipher, $encryption_key, 0, $iv),
-                'Foto KTP' => $request->file('foto')->encryptAes('foto'),
-                'Video' => $request->file('video')->encryptAes('video'),
+                'First Name' => openssl_encrypt($request->first_name, $cipher, $encryption_key, 0, $iv),
+                'Last Name' => openssl_encrypt($request->last_name, $cipher, $encryption_key, 0, $iv),
+                'Company' => openssl_encrypt($request->company, $cipher, $encryption_key, 0, $iv),
+                'Phone Number' => openssl_encrypt($request->phone, $cipher, $encryption_key, 0, $iv),
+                'Email Address' => openssl_encrypt($request->email, $cipher, $encryption_key, 0, $iv),
+                'Foto KTP' => openssl_encrypt($request->foto, $cipher, $encryption_key, 0, $iv),
+                'Video' => openssl_encrypt($request->video, $cipher, $encryption_key, 0, $iv),
             ];
 
             Upload::create([
