@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('Company');
             $table->string('Phone Number');
             $table->string('Email Address');
+            $table->string('Foto KTP');
+            $table->string('Video');
             $table->timestamps();
 
         });
